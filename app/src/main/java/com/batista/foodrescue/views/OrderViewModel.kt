@@ -27,7 +27,7 @@ class OrderViewModel @Inject constructor(
     lateinit var myQueryResponse: Flow<List<Produto>>
 
     init {
-        val formatter = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        val formatter = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
         val date = formatter.format(Date())
         selectedDateLiveData.postValue(date.toString())
 

@@ -18,6 +18,7 @@ import com.batista.foodrescue.data.model.Produto
 import com.batista.foodrescue.databinding.FragmentFormBinding
 import com.example.cardview.fragment.DatePickerFragment
 import com.example.cardview.fragment.TimePickerListener
+import com.google.android.material.datepicker.MaterialDatePicker
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -30,6 +31,8 @@ class FragmentForm : Fragment(), TimePickerListener, AdapterView.OnItemSelectedL
     private var _binding: FragmentFormBinding? = null
     private val binding get() = _binding!!
     var dadosValidados: Boolean = false
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -150,16 +153,21 @@ class FragmentForm : Fragment(), TimePickerListener, AdapterView.OnItemSelectedL
         val formatter = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
         val formatedDate = formatter.format(date).toString()
         orderViewModel.selectedDateLiveData.postValue(formatedDate)
+
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
         val itemAtPosition: String = p0?.getItemAtPosition(p2) as String
         Log.d("Developer", "itemAtPosition: $itemAtPosition")
+
     }
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
     }
     private fun validaForm(valid_nome: String, valid_descricao: String, valid_quant: String) {
+        val formatter = SimpleDateFormat("dd-MM-yyyy HH:mm:ss")
+        val date = formatter.format(Date())
+        val inputData = binding.editData.text.toString()
 
         if ((TextUtils.isEmpty(valid_nome) || TextUtils.isEmpty(valid_descricao) || TextUtils.isEmpty(valid_quant))) {
 
@@ -170,7 +178,11 @@ class FragmentForm : Fragment(), TimePickerListener, AdapterView.OnItemSelectedL
 
             return Toast.makeText(context, "Foram excedidas as quantidas maximas de caracteres", Toast.LENGTH_SHORT).show()
 
-        }else{
+
+        }else if (inputData < date){
+            return Toast.makeText(context, "Data inválida!", Toast.LENGTH_SHORT).show()
+
+        } else{
             dadosValidados = true
         }
     }
