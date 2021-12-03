@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array
+        name="status_array">
+        <item>Não iniciado</item>
+        <item>Em andamento</item>
+        <item>Concluído</item>
+    </string-array>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentTelaListaProdutos">
+
+    <fragment
+        android:id="@+id/fragmentTelaLogin"
+        android:name="com.batista.foodrescue.views.TelaLogin"
+        android:label="@string/label_tela_login"
+        tools:layout="@layout/fragment_tela_login">
+        <action
+            android:id="@+id/action_fragmentTelaLogin_to_fragmentTelaListaProdutos"
+            app:destination="@id/fragmentTelaListaProdutos" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentTelaForm"
+        android:name="com.batista.foodrescue.views.FragmentForm"
+        android:label="@string/label_novo_fragment"
+        tools:layout="@layout/fragment_form">
+        <action
+            android:id="@+id/action_fragmentTelaForm_to_fragmentTelaListaProdutos"
+            app:destination="@id/fragmentTelaListaProdutos" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentTelaListaProdutos"
+        android:name="com.batista.foodrescue.views.list.FragmentList"
+        android:label="@string/label_tela_produtos"
+        tools:layout="@layout/fragment_produtos">
+        <action
+            android:id="@+id/action_fragmentTelaListaProdutos_to_fragmentTelaForm"
+            app:destination="@id/fragmentTelaForm" />
+    </fragment>
+</navigation>

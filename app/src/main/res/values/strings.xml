@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Food Rescue</string>
+    <string name="text_login">Login</string>
+    <string name="label_tela_login">Login</string>
+    <string name="nome_do_produto">Nome do produto</string>
+    <string name="descricao_do_produto">Descrição do produto</string>
+    <string name="label_novo_fragment">Cadastrar Produto</string>
+    <string name="label_tela_produtos">Produtos</string>
+    <string name="label_btn_salvar_produto">salvar produto</string>
+    <string name="description_access">description</string>
+    <string name="label_nome_produto">Nome do Produto</string>
+    <string name="label_status">Status:</string>
+    <string name="label_data">Data:</string>
+</resources>
